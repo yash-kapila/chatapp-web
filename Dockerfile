@@ -6,6 +6,11 @@ WORKDIR /chat-app-web
 
 COPY package*.json ./
 
+ARG build_configuration=production
+ARG NODE_ENV_ARG=development
+
+ENV NODE_ENV $NODE_ENV_ARG
+
 # Run below to have bash as default shell for container
 # RUN apk update && apk add bash
 # SHELL [ "/bin/bash", "-c" ]
@@ -13,8 +18,6 @@ COPY package*.json ./
 RUN npm install
 
 COPY . .
-
-ARG build_configuration=production
 
 RUN npm run build -- --configuration $build_configuration
 

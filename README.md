@@ -34,10 +34,10 @@ To create a development or production distributation image, execute the followin
 
 ```
 # Development Image
-docker build --build-arg configuration=development -t chatapp-web:0.0.1-dev .
+docker build --build-arg build_configuration=development -t chatapp-web:0.0.1-dev .
 
 # Production Image
-docker build --build-arg configuration=production -t chatapp-web:0.0.1-prod .
+docker build --build-arg build_configuration=production --build-arg NODE_ENV_ARG=production -t chatapp-web:0.0.1-prod .
 ```
 
 Once the image is created, a container can be spawned by executing
